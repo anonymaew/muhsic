@@ -26,13 +26,17 @@ const [table, files] = (
     <audio
       controls
       controlslist="nodownload"
-      src={`${nocodbHost}/${files["english_audio_file"][0]["signedPath"]}`}
+      src={files["en_wav"]
+        ? `${nocodbHost}/${files["en_wav"][0]["signedPath"]}`
+        : ""}
       style="height: 120px; width: 100%;"
     >
     </audio>
     <div style="height:600px; position:relative; overflow:hidden;">
       <iframe
-        src={`${nocodbHost}/${files["english_transcript_file"][0]["signedPath"]}#toolbar=0&pagemode=none`}
+        src={files["en_pdf"]
+          ? `${nocodbHost}/${files["en_pdf"][0]["signedPath"]}#toolbar=0&pagemode=none`
+          : ""}
         style="width:100%; height:632px; position:absolute; bottom:0;"></iframe>
     </div>
   </div>
@@ -41,13 +45,17 @@ const [table, files] = (
     <audio
       controls
       controlslist="nodownload"
-      src={`${nocodbHost}/${files["spanish_audio_file"][0]["signedPath"]}`}
+      src={files["es_wav"]
+        ? `${nocodbHost}/${files["es_wav"][0]["signedPath"]}`
+        : ""}
       style="height: 120px; width: 100%;"
     >
     </audio>
     <div style="height:600px; position:relative; overflow:hidden;">
       <iframe
-        src={`${nocodbHost}/${files["spanish_transcript_file"][0]["signedPath"]}#toolbar=0&pagemode=none`}
+        src={files["es_pdf"]
+          ? `${nocodbHost}/${files["es_pdf"][0]["signedPath"]}#toolbar=0&pagemode=none`
+          : ""}
         style="width:100%; height:632px; position:absolute; bottom:0;"></iframe>
     </div>
   </div>
@@ -59,37 +67,41 @@ const [table, files] = (
         {[
           {
             label: "High-definition English audio file",
-            file_meta: files["english_audio_file"][0],
-            type: "audio",
+            file_meta: files["en_wav"],
+            type: "wav",
           },
           {
             label: "High-definition Spanish audio file",
-            file_meta: files["spanish_audio_file"][0],
-            type: "audio",
+            file_meta: files["es_wav"],
+            type: "wav",
           },
           {
             label: "English interview transcript",
-            file_meta: files["english_transcript_file"][0],
+            file_meta: files["en_pdf"],
             type: "pdf",
           },
           {
             label: "Spanish interview transcript",
-            file_meta: files["spanish_transcript_file"][0],
+            file_meta: files["es_pdf"],
             type: "pdf",
           },
         ].map((file) => (
           <button
             class="big-button"
-            style="width:360px; background-color: var(--ucsc-blue); color:white; margin: 1rem;"
+            style={`width:360px; background-color: ${file.file_meta ? "var(--ucsc-blue)" : "#888"}; color:white; margin: 1rem;`}
           >
             <a
-              href={`${nocodbHost}/${file.file_meta["signedPath"]}`}
+              href={
+                file.file_meta
+                  ? `${nocodbHost}/${file.file_meta["signedPath"]}`
+                  : "#"
+              }
               download
               target="_blank"
               style="text-decoration: none; display: flex; align-items: center; justify-content: space-between; color:white;"
             >
               <Image
-                src={file.type === "audio" ? wav_icon : pdf_icon}
+                src={{ wav: wav_icon, pdf: pdf_icon }[file.type]}
                 alt="icon"
                 width={32}
                 height={32}
@@ -97,7 +109,7 @@ const [table, files] = (
               <span style="padding: 0.5rem;">
                 {file.label}
                 <br />
-                {` (${file.file_meta["mimetype"].split("/")[1]}, ${((bytes) => {
+                {` (${file.type}, ${((bytes) => {
                   const units = ["B", "kB", "MB", "GB"];
                   let ui = 0;
                   while (bytes > 1024) {
@@ -105,7 +117,7 @@ const [table, files] = (
                     ui++;
                   }
                   return `${bytes.toFixed(2).slice(0, bytes > 100 ? 3 : 4)} ${units[ui]}`;
-                })(file.file_meta["size"])})`}
+                })(file.file_meta ? file.file_meta[0]["size"] : 0)})`}
               </span>
             </a>
           </button>

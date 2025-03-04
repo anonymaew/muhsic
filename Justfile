@@ -2,6 +2,7 @@ transfer:
 	rsync -avPh \
 		--exclude node_modules \
 		--exclude dist \
+		--exclude .git \
 		. napat@muhsic.acad.ucsc.edu:~/corpus
 	
 deploy:

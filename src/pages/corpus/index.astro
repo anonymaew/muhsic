@@ -7,8 +7,8 @@ import { getSession } from 'auth-astro/server';
 export const prerender = false
 
 const session = await getSession(Astro.request);
-const list = (await read({fields:["participant_code","sex","speaker_group","language_dominance","is_public_sample"]}))
-  .filter(part => canRead(session) || part.is_public_sample)
+const list = (await read({fields:["participant_code","sex","speaker_group","language_dominance","is_public_sample","publish"]}))
+  .filter(part => canRead(session) && part.is_public_sample && part.publish)
 ---
 
 <Layout>
