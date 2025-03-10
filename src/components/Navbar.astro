@@ -3,12 +3,18 @@ import { getSession } from "auth-astro/server";
 const session = await getSession(Astro.request);
 import { SignIn } from "auth-astro/components";
 import { Image } from "astro:assets";
-import logo from "./logo.jpg";
+import banner from "./logo/banner.jpg";
 ---
 
 <nav>
   <a id="site-title" href="/" style="line-height: 0;">
-    <Image src={logo} alt="MuHSiC logo" width={236} height={83.5} />
+    <Image
+      src={banner}
+      alt="MuHSiC logo"
+      width={236}
+      height={83.5}
+      densities={[1, 2]}
+    />
   </a>
   <details>
     <summary>Menu</summary>
@@ -28,7 +34,7 @@ import logo from "./logo.jpg";
       <li><a href="/corpus">Corpus</a></li>
       <li><a href="/material">Materials</a></li>
       <li><a href="/cite-the-corpus">Cite the Corpus</a></li>
-      <li><a href="/links-to-other-corpora">Links to Corpora</a></li>
+      <li><a href="/links-to-other-corpora">Links to Other Corpora</a></li>
       <li>
         {
           session?.user ? (
@@ -56,7 +62,7 @@ import logo from "./logo.jpg";
     <li><a href="/corpus">Corpus</a></li>
     <li><a href="/material">Materials</a></li>
     <li><a href="/cite-the-corpus">Cite the Corpus</a></li>
-    <li><a href="/links-to-other-corpora">Links to Corpora</a></li>
+    <li><a href="/links-to-other-corpora">Links to Other Corpora</a></li>
     <li>
       {
         session?.user ? (

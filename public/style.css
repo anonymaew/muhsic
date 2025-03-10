@@ -5,10 +5,14 @@
   --anchor-color: #216890;
 }
 
+@font-face {
+  font-family: 'PublicSans';
+  src: url('/fonts/PublicSans-Regular.woff2') format('woff2');
+}
+
 body {
   container-type: inline-size;
-  font-family: sans-serif;
-  font-size: large;
+  font-family: "PublicSans", "Roboto", sans-serif;
   line-height: 1.5rem;
   min-height: 100vh;
 }
@@ -172,9 +176,12 @@ footer {
 footer {
   margin: 4rem auto;
   padding: 0 1rem 2rem 1rem;
-  border-top: 1px solid grey;
   font-size: smaller;
   text-align: center;
+  div {
+    padding-top: 2rem;
+    border-top: 1px solid grey;
+  }
 }
 
 table {
@@ -260,6 +267,10 @@ table {
 
 .center{
   margin:auto;
+}
+
+.justify {
+  text-align: justify;
 }
 
 .input-filter{

@@ -52,118 +52,204 @@ import Layout from "@/layouts/Layout.astro";
     </li>
     <li><a href="https://www.utrgv.edu/cobiva/index.htm">CoBiVa<br /></a></li>
   </ul>
+
   <p class="has-medium-font-size"><strong>Other Languages</strong></p>
   <ul class="wp-block-list">
-    <li>
-      American English –&nbsp;<a href="http://slaap.lib.ncsu.edu/"
-        >SLAAP: The Sociolinguistic Archive and Analysis Project</a
-      >
-    </li>
-    <li>
-      Brazilian Portuguese –&nbsp;<a href="https://alip.ibilce.unesp.br/"
-        >ALIP: Amostra Lingüística do Interior Paulista</a
-      >&nbsp;
-    </li>
-    <li>Catalan –&nbsp;<a href="https://clic.ub.edu/corpus/">Ancora</a></li>
-    <li>
-      <a href="https://oraal.uoregon.edu/coraal"
-        >CORAAL: The Corpus of Regional African American Language</a
-      >
-    </li>
-    <li>
-      <a href="http://research.ncl.ac.uk/decte/"
-        >DECTE: Diachronic Electronic Corpus of Tyneside English</a
-      >
-    </li>
-    <li>
-      Dutch –&nbsp;<a href="https://ivdnt.org/corpora-lexica/brieven-als-buit/"
-        >Brieven als Buit</a
-      >
-    </li>
-    <li>
-      <a
-        href="https://www.ausnc.org.au/corpora/facet_listing?include_subfolders"
-        >English ACE: Australian National Corpus</a
-      >
-    </li>
-    <li>
-      French –&nbsp;<a href="http://cfpp2000.univ-paris3.fr/"
-        >CFPP: Le Corpus de Français Parlé Parisien</a
-      >
-    </li>
-    <li>
-      German –&nbsp;<a
-        href="https://www.isfas.uni-kiel.de/de/linguistik/forschung/kiel-corpus"
-        >The Kiel Corpus</a
-      >
-    </li>
-    <li>
-      Hebrew –&nbsp;<a href="http://cosih.com/english/index.html"
-        >CoSIH: The Corpus of Spoken Israeli Hebrew</a
-      >
-    </li>
-    <li>
-      <a href="http://ice-corpora.net/ice/"
-        >ICE: International Corpus of English</a
-      >
-    </li>
-    <li>
-      Italian –&nbsp;<a
-        href="http://universal.elra.info/product_info.php?cPath=37_46&products_id=1472"
-        >LABLITA: Corpus of Spontaneous Spoken Italian</a
-      >
-    </li>
-    <li>
-      <a href="http://www.kiezdeutschkorpus.de/">KiDKo: KiezDeutsch-Korpus</a
-      >&nbsp;(German in a multilingual neighborhood of Berlin)
-    </li>
-    <li>
-      Lithuanian –&nbsp;<a href="http://kalbavilnius.sociolingvistika.lt/"
-        >Vilniečių interviu bazė “Kalba Vilnius”</a
-      >&nbsp;(database of sociolinguistic interviews “Vilnius Speaking”)
-    </li>
-    <li>
-      <a href="https://www.pacprogramme.net/"
-        >PAC: The Phonology of Contemporary English</a
-      >
-    </li>
-    <li>
-      <a href="http://www.projet-pfc.net/"
-        >PFC: Phonologie du Français Contemporain</a
-      >&nbsp;(Phonology of Contemporary French)
-    </li>
-    <li>
-      Portuguese –&nbsp;<a href="http://projetosp2010.fflch.usp.br/node/3"
-        >Amostra da Fala Paulistana</a
-      >
-    </li>
-    <li>
-      <a href="http://comet.fflch.usp.br/corporaportugues"
-        >Several Portuguese Corpura</a
-      >
-    </li>
-    <li>
-      <a href="http://www.linguistics.ucsb.edu/research/santa-barbara-corpus"
-        >SBCSAE: The Santa Barbara Corpus of Spoken American English</a
-      >
-    </li>
-    <li>
-      Swedish –&nbsp;<a href="https://gupea.ub.gu.se/handle/2077/21546"
-        >The Swedish Spoken Language Corpus at Göteborg University</a
-      >
-    </li>
-    <li>
-      Valibel —&nbsp;<a
-        href="https://journals.openedition.org/brussels/829?lang=en"
-        >Discours et variation (French spoken in Bruxelles)</a
-      >
-    </li>
-    <li>
-      <a
-        href="http://www.victoria.ac.nz/lals/resources/corpora-default/corpora-wsc"
-        >WSC: The Wellington Corpus of Spoken New Zealand English</a
-      >
-    </li>
+    {
+      // corpora represented in JSON
+      [
+        {
+          language: "Catalan",
+          corpora: [
+            {
+              name: "Ancora",
+              link: "https://clic.ub.edu/corpus/",
+            },
+          ],
+        },
+        {
+          language: "Dutch",
+          corpora: [
+            {
+              name: "Brieven als Buit",
+              link: "https://ivdnt.org/corpora-lexica/brieven-als-buit/",
+            },
+          ],
+        },
+        {
+          language: "English",
+          corpora: [
+            {
+              name: "SLAAP: The Sociolinguistic Archive and Analysis Project",
+              link: "http://slaap.lib.ncsu.edu/",
+            },
+            {
+              name: "CORAAL: The Corpus of Regional African American Language",
+              link: "https://oraal.uoregon.edu/coraal",
+            },
+            {
+              name: "DECTE: Diachronic Electronic Corpus of Tyneside English",
+              link: "http://research.ncl.ac.uk/decte/",
+            },
+            {
+              name: "English ACE: Australian National Corpus",
+              link: "https://www.ausnc.org.au/corpora/facet_listing?include_subfolders",
+            },
+            {
+              name: "ICE: International Corpus of English",
+              link: "http://ice-corpora.net/ice/",
+            },
+            {
+              name: "PAC: The Phonology of Contemporary English",
+              link: "https://www.pacprogramme.net/",
+            },
+            {
+              name: "SBCSAE: The Santa Barbara Corpus of Spoken American English",
+              link: "http://www.linguistics.ucsb.edu/research/santa-barbara-corpus",
+            },
+            {
+              name: "WSC: The Wellington Corpus of Spoken New Zealand English",
+              link: "http://www.victoria.ac.nz/lals/resources/corpora-default/corpora-wsc",
+            },
+          ],
+        },
+        {
+          language: "French",
+          corpora: [
+            {
+              name: "CFPP: Le Corpus de Français Parlé Parisien",
+              link: "http://cfpp2000.univ-paris3.fr/",
+            },
+            {
+              name: "PFC: Phonologie du Français Contemporain",
+              link: "http://www.projet-pfc.net/",
+              notes: "Phonology of Contemporary French",
+            },
+            {
+              prefix: "Valibel",
+              name: "Discours et variation",
+              link: "https://journals.openedition.org/brussels/829?lang=en",
+              notes: "French spoken in Bruxelles",
+            },
+          ],
+        },
+        {
+          language: "German",
+          corpora: [
+            {
+              name: "The Kiel Corpus",
+              link: "https://www.isfas.uni-kiel.de/de/linguistik/forschung/kiel-corpus",
+            },
+            {
+              name: "KiDKo: KiezDeutsch-Korpus",
+              link: "http://www.kiezdeutschkorpus.de/",
+              notes: "German in a multilingual neighborhood of Berlin",
+            },
+          ],
+        },
+        {
+          language: "Hebrew",
+          corpora: [
+            {
+              name: "CoSIH: The Corpus of Spoken Israeli Hebrew",
+              link: "http://cosih.com/english/index.html",
+            },
+          ],
+        },
+        {
+          language: "Italian",
+          corpora: [
+            {
+              name: "LABLITA: Corpus of Spontaneous Spoken Italian",
+              link: "http://universal.elra.info/product_info.php?cPath=37_46&products_id=1472",
+            },
+          ],
+        },
+        {
+          language: "Lithuanian",
+          corpora: [
+            {
+              name: "Vilniečių interviu bazė “Kalba Vilnius”",
+              link: "http://kalbavilnius.sociolingvistika.lt/",
+              notes:
+                "database of sociolinguistic interviews \“Vilnius Speaking\”",
+            },
+          ],
+        },
+        {
+          language: "Portuguese",
+          corpora: [
+            {
+              name: "ALIP: Amostra Lingüística do Interior Paulista",
+              link: "https://alip.ibilce.unesp.br/",
+            },
+            {
+              name: "Amostra da Fala Paulistana",
+              link: "http://projetosp2010.fflch.usp.br/node/3",
+            },
+            {
+              name: "Several Portuguese Corpura",
+              link: "http://comet.fflch.usp.br/corporaportugues",
+            },
+          ],
+        },
+        {
+          language: "Swedish",
+          corpora: [
+            {
+              name: "The Swedish Spoken Language Corpus at Göteborg University",
+              link: "https://gupea.ub.gu.se/handle/2077/21546",
+            },
+          ],
+        },
+      ]
+        // sorted by language first
+        .toSorted((a, b) => a.language.localeCompare(b.language))
+        .map((lang) => (
+          <li>
+            {lang.language}
+            {lang.corpora.length == 1 ? (
+              // different displaying if the language has one corpora.
+              <>
+                {" – "}
+                <a href={lang.corpora[0].link}>{lang.corpora[0].name}</a>
+              </>
+            ) : (
+              <ul>
+                {
+                  // for the language with multiple corpora,
+                  lang.corpora
+                    // construct a comparable name first (prefix + the name without "The ")
+                    .map((corpus) => {
+                      corpus.nameCompare =
+                        (corpus.prefix || "") +
+                        corpus.name.match(/(The )?(.*)/)[2];
+                      return corpus;
+                    })
+                    // then sorted by that field
+                    .toSorted((a, b) =>
+                      a.nameCompare.localeCompare(b.nameCompare),
+                    )
+                    // and show each element
+                    .map((corpus) => (
+                      <li>
+                        {
+                          // show prefix if it has one
+                          corpus.prefix && `${corpus.prefix} – `
+                        }
+                        <a href={corpus.link}>{corpus.name}</a>
+                        {
+                          // show notes if it has one, with parenthesis
+                          corpus.notes && ` (${corpus.notes})`
+                        }
+                      </li>
+                    ))
+                }
+              </ul>
+            )}
+          </li>
+        ))
+    }
   </ul>
   <p class="has-medium-font-size"><strong>Sign Language</strong></p>
   <ul class="wp-block-list">

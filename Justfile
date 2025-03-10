@@ -1,3 +1,6 @@
+demo:
+	bun --bun run dev
+
 transfer:
 	rsync -avPh \
 		--exclude node_modules \
